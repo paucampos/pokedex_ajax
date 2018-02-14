@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="shortcut icon" href="assets/icon/favicon.ico"/>
+  <title>Pokedex</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/font/Flexo.zip">
+  <script src="https://use.fontawesome.com/4db2d1a00b.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header>
+    <h1 class="text-center">Pokédex</h1>
+
+    <div class="search text-center">
+      <form id="search-form">
+        <label for="search-keyword" class="visuallyhidden">¿Qué buscamos?</label>
+        <input id="search-keyword" type="text" name="search-keyword" placeholder="por ejemplo: Bulbasaur" required>
+        <input id="submit-btn" class="btn-primary" type="submit" value="Submit">
+      </form>
+    </div>
+  </header>
+
+  <div class="content-container">
+    <ul id="response-container"></ul>
+  </div>
+
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
