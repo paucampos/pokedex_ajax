@@ -8,7 +8,7 @@ Gris claro : #dbdbdb;
 Gris modal fondo : #edecec;
 Gris oscuro letra: #ba5e49;
 Gris iconos : #646464;
-Rojo : #e84848;
+Rojo : #FB0505;
 */
 
 @font-face {
@@ -20,16 +20,49 @@ Rojo : #e84848;
   font-family: "Flexo Regular";
 }
 
+body {
+  background-color: #FB0505;
+}
+
 h1 {
   color: gold;
   font-weight: bold;
   text-shadow: 5px 1px 5px blue;
 }
 
+#search-form {
+  display: block;
+  padding-top: 15px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+#search-keyword {
+  background-image: url(../img/lupa.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  border-bottom: 1px solid rgba(0,0,0,0.4);
+  display: block;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid rgba(0,0,0,0.26);
+  outline: 0;
+  height: 32px;
+  width: 100%;
+  font-size: 16px;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
 .visuallyhidden {
   visibility: hidden;
 }
 
-#search-keyword {
-  width: 65%;
+/* Contenedor para todos los pokemones */
+.poke {
+  background-color: #dbdbdb;
+  border: 1em solid  #FB0505;
+  height: 15em;
 }

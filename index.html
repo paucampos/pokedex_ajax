@@ -13,18 +13,28 @@
   <header>
     <h1 class="text-center">Pokédex</h1>
 
-    <div class="search text-center">
-      <form id="search-form">
+    <div class="container search text-center">
+      <div id="search-form">
+        <input id="search-keyword" type="search" placeholder="Busca un Pokémon" spellcheck="false" autocorrect="off" autocomplete="off" class="mui--is-dirty mui--is-empty">
+        <label for="search-keyword" class="sr-only">Busca un Pokémon</label>
+      </div>
+      <!-- <form id="search-form">
         <label for="search-keyword" class="visuallyhidden">¿Qué buscamos?</label>
         <input id="search-keyword" type="text" name="search-keyword" placeholder="por ejemplo: Bulbasaur" required>
         <input id="submit-btn" class="btn-primary" type="submit" value="Submit">
-      </form>
+      </form> -->
     </div>
   </header>
 
-  <div class="content-container">
-    <ul id="pokemon-container"></ul>
-  </div>
+  
+    <!-- Contenedor de el pokemon buscado -->    
+    <div id="pokeContainer" class="container"></div>
+    <!-- Contendor de todos los pokemones -->
+    <div class="container">
+    <div id="allPokes" class="row"></div>
+    </div>
+  
+
 
   <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
