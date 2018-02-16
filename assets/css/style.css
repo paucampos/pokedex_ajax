@@ -63,6 +63,30 @@ h1 {
 /* Contenedor para todos los pokemones */
 .poke {
   background-color: #dbdbdb;
-  border: 1em solid  #FB0505;
+  border: 1em solid #FB0505;
   height: 15em;
+  border-radius: 1em;
+}
+
+.pokeInfo {
+  background-color: #36a4d3;
+  color: #fff;
+  border-radius: 1em;
+  padding-top: 0.5em;
+}
+
+.search-container {
+  background-color: #dbdbdb;
+  border-radius: 1em;
+}
+
+.descriptionPoke {
+  background-color: #edecec;
+  border-radius: 1em;
+  color: #000;
+}
+
+.pokeContainer { 
+  padding: 1em;
+  background-color: #FB0505;
 }

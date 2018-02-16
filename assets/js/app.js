@@ -17,7 +17,7 @@ $form.on('keypress', function (e) {
 // Funcion para crear peticiones
 function getPkms() {
   // Creamos nuestro objeto de configuracion
-  $.ajax({ // MIGRAMOS el objeto de configuración de XMLHttpRequest a jQuery con Ajax
+  $.ajax({
     url: `https://pokeapi.co/api/v2/pokemon/${pokemon}`
   }).done(addPkms)
   .fail(handleError);
@@ -25,32 +25,55 @@ function getPkms() {
 
 // Funcion para error
 function handleError() {
-  console.log('Se ha presentado un error en la página');
+  console.log('Se ha presentado un error en la API');
 }
 
+// Muestra el pokemon buscado
 function addPkms(pkms) {
-  console.log(pkms);
+  // console.log(pkms);
   const pokeName = pkms.name;
+  const pokeHeight = (pkms.height)/10;
+  const pokeWeight = (pkms.weight)/10;
+
   const pokeTypes = pkms.types;
   pokeTypes.forEach(function(type) {
     const nameType = type.name;
-    console.log(nameType);
   });
-  const pokeHeight = (pkms.height)/10;
-  const pokeWeight = (pkms.weight)/10;
+  
   // const pokeAbilities
-  console.log(pokeName);
-  console.log(pokeTypes);
-  console.log(pokeHeight + ' m');
-  console.log(pokeWeight + ' kg');
+  const pokeAbility = pkms.abilities[0].ability.name;
+  const urlPoke = pkms.species.url;
 
-  console.log(pkms.abilities[0].ability.name);
+  // Anexamos el li al ul
+  $pokeContainer.append(`
+    <div class="col-lg-6 col-md-6 col-xs-6 search-container text-center">
+      <img src="https://pokeapi.co/media/img/${pkms.id}.png" imgPoke">
+    </div>
+    <div class="col-lg-6 col-md-6 col-xs-6 pokeInfo">
+      <div class="col-lg-12 col-md-12 col-xs-12"><h2>${pokeName}</h2></div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-xs-6">
+          <p>Altura:<br>${pokeHeight} m</p>
+          <p>Peso:<br>${pokeWeight} kg</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-xs-6">
+          <p>Habilidad:<br>${pokeAbility}</p>
+        </div>
+      </div>
+    </div>`);
 
-  let $pokeImg = $('<img>').attr('src', `https://pokeapi.co/media/img/${pkms.id}.png`).addClass('imgPoke');
-
-  //   // Anexamos el li al ul
-  $pokeContainer.append($pokeImg);
-  // }); 
+  $.ajax({
+    url: urlPoke
+  }).done(function(species) {
+    const descriptionPoke = species.flavor_text_entries[11].flavor_text;
+    $('#pokeContainer').append(`
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-xs-12 descriptionPoke">
+          <p>Descripción: ${descriptionPoke}</p>
+        </div>
+      </div>`);
+  })
+  .fail(handleError);
 };
 
 $(() => {
@@ -61,10 +84,4 @@ $(() => {
       <p>
       </div>`);
   }
-  $.ajax({ // MIGRAMOS el objeto de configuración de XMLHttpRequest a jQuery con Ajax
-    url: `https://pokeapi.co/api/v2/pokemon/${pokemon}`
-  }).done(addPkms)
-  .fail(handleError);
-
-  ${pkms.id}.click()
 })
