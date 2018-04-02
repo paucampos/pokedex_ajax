@@ -1,4 +1,4 @@
-# Pokédex
+# Pokedex
 
 En pokédex podrás buscar pokemones donde podrás ver su descripción y otro datos sobre ellos.
 
